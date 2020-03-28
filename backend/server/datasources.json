@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mySqlRopa": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "ventaropa",
+    "password": "",
+    "name": "mySqlRopa",
+    "user": "root",
+    "connector": "mysql"
+  }
+}
