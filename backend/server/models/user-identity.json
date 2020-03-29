@@ -1,0 +1,49 @@
+{
+  "name": "userIdentity",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "provider": {
+      "type": "string",
+      "required": true
+    },
+    "authScheme": {
+      "type": "string",
+      "required": true
+    },
+    "externalId": {
+      "type": "string",
+      "required": true
+    },
+    "profile": {
+      "type": "object",
+      "required": true
+    },
+    "credentials": {
+      "type": "object"
+    },
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "created": {
+      "type": "date"
+    },
+    "modified": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

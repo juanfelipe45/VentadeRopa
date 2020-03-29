@@ -1,0 +1,46 @@
+{
+  "name": "Ropa",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "talla": {
+      "type": "string",
+      "required": true
+    },
+    "stock": {
+      "type": "number",
+      "required": true
+    },
+    "precio": {
+      "type": "number",
+      "required": true
+    },
+    "imagen": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

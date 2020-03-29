@@ -23,7 +23,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "ropas": {
+      "type": "hasMany",
+      "model": "Ropa",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

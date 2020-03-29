@@ -14,11 +14,12 @@
     ]
   },
   "User": {
-    "dataSource": "mySqlRopa"
+    "dataSource": "mySqlRopa",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "mySqlRopa",
-    "public": false
+    "public": true
   },
   "ACL": {
     "dataSource": "mySqlRopa",
@@ -36,6 +37,14 @@
     "public": false
   },
   "user": {
+    "dataSource": "mySqlRopa",
+    "public": true
+  },
+  "Ropa": {
+    "dataSource": "mySqlRopa",
+    "public": true
+  },
+  "userIdentity": {
     "dataSource": "mySqlRopa",
     "public": true
   }
