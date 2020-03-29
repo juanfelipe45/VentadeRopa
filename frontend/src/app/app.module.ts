@@ -1,7 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+// Routing
+import { AppRoutingModule } from './Routes/app-routing.module';
+
+// Module
+import { HomeModule } from './Modules/home/home.module';
+
+// Vomponent
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -9,8 +16,10 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
+    HomeModule,
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

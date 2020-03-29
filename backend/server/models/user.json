@@ -15,8 +15,7 @@
       "required": true
     },
     "phone": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "photo": {
       "type": "string"

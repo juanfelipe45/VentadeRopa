@@ -7,20 +7,16 @@
   },
   "properties": {
     "provider": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "authScheme": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "externalId": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "profile": {
-      "type": "object",
-      "required": true
+      "type": "object"
     },
     "credentials": {
       "type": "object"
