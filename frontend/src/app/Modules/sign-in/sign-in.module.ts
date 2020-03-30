@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,6 +16,7 @@ import { SharedService } from './../../Services/shared/shared.service';
 
 // Components
 import { SignInComponent } from '../../Components/home/sign-in/sign-in.component';
+import { from } from 'rxjs';
 
 const config = new AuthServiceConfig([
   {
@@ -32,6 +34,7 @@ export function provideConfig() {
     SignInComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     HttpClientModule,
     SocialLoginModule,
@@ -43,7 +46,7 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    },
+    }
   ]
 })
 export class SignInModule { }

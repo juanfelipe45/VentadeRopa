@@ -1,0 +1,164 @@
+.container
+  height: 100vh
+  width: 100vw
+  position: absolute
+
+  .info
+    width: 100vw
+    background-color: rgba(248, 11, 11, 0.7)
+    height: 8vh
+    position: absolute
+    display: flex
+    align-items: center
+    justify-content: center
+    color: white
+    -webkit-animation-duration: 1s
+    animation-duration: 1s
+    animation-fill-mode: both
+    -webkit-animation-fill-mode: both
+    -webkit-animation-name: fadeInDown
+    animation-name: fadeInDown
+
+    @keyframes fadeInDown
+      from
+        opacity: 0
+        -webkit-transform: translate3d(0, -100%, 0)
+        transform: translate3d(0, -100%, 0)
+      to
+        opacity: 1
+        -webkit-transform: translate3d(0, 0, 0)
+        transform: translate3d(0, 0, 0)
+
+    .close
+      position: absolute
+      right: 2vh
+      top: 1vh
+      transition: 0.4s ease all
+
+      &:hover
+        font-size: 5vh
+        cursor: pointer
+
+  .card
+    height: 75vh
+    width: 27vw
+    position: absolute
+    left: 38vw
+    top: 15vh
+    border-radius: 5vh
+    background-color: rgba(0, 0, 0, 0.6)
+    box-shadow: 0px 0px 10px black
+    color: white
+
+    .card-header
+      display: flex
+      align-items: center
+      justify-content: center
+      margin: 3vh 0
+
+      .image-icon
+        height: 15vh
+        width: 15vh
+        background-image: url("https://lh3.googleusercontent.com/proxy/u26fo0gGNUB3NoldWlqppvJl4DG2UIB3KY5zdGYjU-87fm8Sx5y8_G-Km3ZOy5VOstHAAFm2qqbMX77S09lGnx_pVZPR7Zn-zEGcQgM4h8rHLRueqgnHDxEdGK_ldYg")
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+        margin-right: 1vw
+
+    .body
+      margin: 0vh 3vw 5vh 3vw
+
+      .control-group
+        margin-bottom: 2vh
+
+        .group
+          background-color: #6E7C78
+          height: 6vh
+          display: flex
+          align-items: center
+          border-radius: 1vh
+          padding-left: 1vw
+
+          .icon
+            border-right: 1px solid white
+            width: 2.2vw
+            margin-right: 1vw
+
+          .fas
+            margin-right: 1vw
+            font-size: 3.5vh
+
+          .input
+            width: 16vw
+            height: 5vh
+            background: none
+            outline: none
+            border: none
+            color: white
+            font-size: 2vh
+
+            &::-webkit-input-placeholder
+              color: white
+              font-size: 2.5vh
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus
+              -webkit-text-fill-color: white
+              -webkit-box-shadow: 0 0  10px rgba(155,155,155, 0) inset
+              transition: background-color 5000s ease-in-out
+
+    .options
+      margin-top: 3vh
+
+      .line
+        width: 100%
+        outline: none
+        height: 1vh
+        border: 1px black
+
+      .btn
+        width: 100%
+        background-color: #6E7C78
+        height: 6vh
+        color: white
+        outline: none
+        border: none
+        border-radius: 1vh
+        font-size: 3vh
+        margin-bottom: 4vh
+
+      .submit:enabled
+        transition: 0.5s ease all
+
+        &:hover
+          font-size: 3.5vh
+          background-color: white
+          cursor: pointer
+          color: black
+          box-shadow: 0px 0px 10px white
+
+      .google
+        display: flex
+        align-items: center
+        justify-content: center
+        position: relative
+        background-color: white
+
+        &:hover
+          cursor: pointer
+
+        .icon-google
+          background-image: url("../../../../assets/incon/google-icon.png")
+          background-position: center
+          background-size: cover
+          background-repeat: no-repeat
+          width: 3.5vh
+          height: 3.5vh
+          position: absolute
+          left: 1vw
+
+        .text-google
+          padding-left: 2vw
+          color: black
+          font-weight: bold

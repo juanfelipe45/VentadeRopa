@@ -1,9 +1,6 @@
 import { User } from './../../../Models/user';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-
-// Social login
-import { AuthService } from 'angularx-social-login';
 
 // Services
 import { UserService } from './../../../Services/user/user.service';
@@ -18,15 +15,23 @@ import { take } from 'rxjs/operators';
 })
 export class SignInComponent implements OnInit {
 
-
+  public title: string;
   public user: User;
+  public message: string;
 
   constructor(
-    private _authService: AuthService,
+    private _router: Router,
+    private _elementRef: ElementRef,
     private _userService: UserService,
     private _sharedService: SharedService,
-    private _router: Router
-  ) { }
+  ) {
+    this.title = 'Iniciar Sesión';
+    this.message = '';
+    this.user = {
+      email: '',
+      password: ''
+    };
+  }
 
   ngOnInit() {
   }
@@ -39,8 +44,12 @@ export class SignInComponent implements OnInit {
     } else if (type == 2) {
       // Metodo de incio de sesion con facebook
     } else {
-      // Metodo de inicio de sesion local
+      this.localAuth();
     }
+  }
+
+  closeMessage(): void {
+    this.message = '';
   }
 
   private googleAuth(): void {
@@ -57,6 +66,24 @@ export class SignInComponent implements OnInit {
     }).catch(err => {
       console.log('Process Canceled', err);
     });
+  }
+
+  private localAuth() {
+    this._userService.loginLocal(this.user).pipe(take(1))
+      .subscribe(
+        (data: any) => {
+          this._sharedService.setToken(data.id);
+          this._sharedService.setUser(data.userId);
+          this._router.navigate(['home/ropa']);
+        },
+        err => {
+          console.log('Información Invalidad');
+          this.message = 'Usuario o contraseña incorrecta';
+          this.user.password = '';
+          const inputPass = this._elementRef.nativeElement.querySelector('#email');
+          inputPass.focus();
+        }
+      );
   }
 
 }

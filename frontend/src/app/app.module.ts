@@ -8,8 +8,12 @@ import { AppRoutingModule } from './Routes/app-routing.module';
 // Module
 import { HomeModule } from './Modules/home/home.module';
 
-// Vomponent
+// Component
 import { AppComponent } from './app.component';
+
+// Social Login
+import { AuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { provideConfig } from './Modules/sign-in/sign-in.module';
 
 @NgModule({
   declarations: [
@@ -18,10 +22,16 @@ import { AppComponent } from './app.component';
   imports: [
     HomeModule,
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
+    HttpClientModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
