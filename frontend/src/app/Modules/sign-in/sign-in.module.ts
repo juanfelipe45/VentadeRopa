@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 // Social Login
-import { GoogleLoginProvider } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 
 // Routing
@@ -22,6 +22,10 @@ const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
     provider: new GoogleLoginProvider('1062396271512-f67i10vcu3o0u8f4voe1of2o9nl50cvt.apps.googleusercontent.com')
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("767253447015337")
   }
 ]);
 

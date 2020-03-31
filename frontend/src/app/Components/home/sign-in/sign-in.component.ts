@@ -42,7 +42,8 @@ export class SignInComponent implements OnInit {
       // Inicio de sesion con google
       this.googleAuth();
     } else if (type == 2) {
-      // Metodo de incio de sesion con facebook
+      //inicio de sesion con Facebook
+      this.facebookAuth();
     } else {
       this.localAuth();
     }
@@ -63,6 +64,24 @@ export class SignInComponent implements OnInit {
         },
         err => console.log(err)
       );
+      console.log(userData);
+    }).catch(err => {
+      console.log('Process Canceled', err);
+    });
+  }
+
+  private facebookAuth(): void {
+    this._userService.loginFacebook().then(userData => {
+      this._userService.signInWithFacebok(userData).pipe(take(1))
+      .subscribe(
+        (data: any) => {
+          this._sharedService.setToken(data.info.id);
+          this._sharedService.setUser(data.info.userId);
+          this._router.navigate(['home/ropa']);
+        },
+        err => console.log(err)
+      );
+      console.log(userData);
     }).catch(err => {
       console.log('Process Canceled', err);
     });
